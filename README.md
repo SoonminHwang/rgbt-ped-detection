@@ -1,9 +1,13 @@
 ---
 ## KAIST Multispectral Pedestrian Detection Benchmark
 
-By Soonmin Hwang, Jaesik Park, Namil Kim, Yukyung Choi, In So Kweon at RCV Lab. (KAIST) [[Website](http://multispectral.kasit.ac.kr)]
+By Soonmin Hwang, Jaesik Park, Namil Kim, Yukyung Choi, In So Kweon at RCV Lab. (KAIST) [[Website](http://multispectral.kaist.ac.kr)]
 ![teaserImage](https://sites.google.com/site/pedestrianbenchmark/home/main_img.png)
 
+
+We developed imaging hardware consisting of a color camera, a thermal camera and a beam splitter to capture the aligned multispectral (RGB color + Thermal) images. With this hardware, we captured various regular traffic scenes at day and night time to consider changes in light conditions.
+
+The KAIST Multispectral Pedestrian Dataset consists of 95k color-thermal pairs (640x480, 20Hz) taken from a vehicle. All the pairs are manually annotated (person, people, cyclist) for the total of 103,128 dense annotations and 1,182 unique pedestrians. The annotation includes temporal correspondence between bounding boxes like Caltech Pedestrian Dataset. More infomation can be found in our CVPR 2015 [[paper](paper/CVPR15_Pedestrian_Benchmark.pdf)] [[Ext. Abstract](paper/CVPR15_Pedestrian_Benchmark_ext.pdf)].
 
 &nbsp;
 ---
@@ -16,6 +20,12 @@ First, download multispectral dataset.
 
 Then just run `acfDemoKAIST.m` in MATLAB
 
+
+
+### Preview
+[![Set00, Day-Campus](https://youtu.be/a6KKFGNkNNE)]
+[![Set04, Night-Road](https://youtu.be/GSc9Lu3TQyQ)]
+[![Set05, Night-Downtown](https://youtu.be/AerQFTuMFsg)]
 
 
 ### Toolbox
