@@ -1,5 +1,4 @@
----
-## KAIST Multispectral Pedestrian Detection Benchmark
+# KAIST Multispectral Pedestrian Detection Benchmark
 
 By Soonmin Hwang, Jaesik Park, Namil Kim, Yukyung Choi, In So Kweon at RCV Lab. (KAIST) [[Website](http://multispectral.kaist.ac.kr)]
 ![teaserImage](misc/teaser.png)
@@ -11,7 +10,7 @@ The KAIST Multispectral Pedestrian Dataset consists of 95k color-thermal pairs (
 
 &nbsp;
 ---
-### Usage
+## Usage
 
 1. Clone this repository.
 
@@ -39,13 +38,13 @@ Run ````fetch_dataset_kaist_cvpr15.m```` in MATLAB.
 
 
 
-### Preview
+## Preview
 [![Set00, Day-Campus](http://img.youtube.com/vi/a6KKFGNkNNE/0.jpg)](https://youtu.be/a6KKFGNkNNE)
 [![Set04, Night-Road](http://img.youtube.com/vi/GSc9Lu3TQyQ/0.jpg)](https://youtu.be/GSc9Lu3TQyQ)
 [![Set05, Night-Downtown](http://img.youtube.com/vi/AerQFTuMFsg/0.jpg)](https://youtu.be/AerQFTuMFsg)
 
 
-### Toolbox
+## Toolbox
 This repository includes an extension of [Piotr's Computer Vision Matlab Toolbox](https://github.com/pdollar/toolbox).
 We modify some codes to deal with 4-ch RGB+T images, e.g. `${PIOTR_TOOLBOX}/channels/chnsCompute.m`.
 All the modifications are in `libs/`.
@@ -55,7 +54,7 @@ All the modifications are in `libs/`.
 &nbsp;
 ---
 
-### Experimental results
+## Experimental results
 Many researchers struggle to improve pedestrian detection performance on our benchmark. If you are interested, please see these works.
 
 - FusionRPN + BDT [[CVPR '17](http://openaccess.thecvf.com/content_cvpr_2017_workshops/w3/papers/Konig_Fully_Convolutional_Region_CVPR_2017_paper.pdf)]: 29.83%
@@ -72,7 +71,7 @@ Also, another researches to employ multi-modality are presented.
 
 
 
-### Citation
+## Citation
 If you use our extended toolbox or dataset in your research, please consider citing:
 
 	@inproceedings{hwang2015multispectral,
