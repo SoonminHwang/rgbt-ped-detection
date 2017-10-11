@@ -591,7 +591,8 @@ for d=1:m
 end
 end
 
-function [gt0,dt0] = loadAll( gtDir, dtDir, pLoad )
+% function [gt0,dt0] = loadAll( gtDir, dtDir, pLoad )
+function [gt0,dt0] = loadAll( gtDir, dtDir, pLoad, subset )
 % Load all ground truth and detection bbs in given directories.
 %
 % Loads each ground truth (gt) annotation in gtDir and the corresponding
@@ -626,12 +627,21 @@ function [gt0,dt0] = loadAll( gtDir, dtDir, pLoad )
 % get list of files
 if(nargin<2), dtDir=[]; end
 if(nargin<3), pLoad={}; end
-if(isempty(dtDir)), fs=getFiles({gtDir}); gtFs=fs(1,:); else
+
+
+if(isempty(dtDir)), fs=getSubsetFiles( {gtDir}, subset, {''} ); gtFs=fs(1,:); else
   dtFile=length(dtDir)>4 && strcmp(dtDir(end-3:end),'.txt');
   if(dtFile), dirs={gtDir}; else dirs={gtDir,dtDir}; end
-  fs=getFiles(dirs); gtFs=fs(1,:);
+  fs=getSubsetFiles(dirs, subset, {''}); gtFs=fs(1,:);
   if(dtFile), dtFs=dtDir; else dtFs=fs(2,:); end
 end
+
+% if(isempty(dtDir)), fs=getFiles({gtDir}); gtFs=fs(1,:); else
+%   dtFile=length(dtDir)>4 && strcmp(dtDir(end-3:end),'.txt');
+%   if(dtFile), dirs={gtDir}; else dirs={gtDir,dtDir}; end
+%   fs=getFiles(dirs); gtFs=fs(1,:);
+%   if(dtFile), dtFs=dtDir; else dtFs=fs(2,:); end
+% end
 
 % load ground truth
 persistent keyPrv gtPrv; key={gtDir,pLoad}; n=length(gtFs);

@@ -207,7 +207,8 @@ dfs= { 'pPyramid',{}, 'filters',[], ...
   'nPerNeg',25, 'nAccNeg',10000, 'pJitter',{}, 'winsSave',0, 'trainSet', [] };
 opts = getPrmDflt(varargin,dfs,1);
 % fill in remaining parameters
-p=chnsPyramid([],opts.pPyramid); p=p.pPyramid;
+% p=chnsPyramid([],opts.pPyramid); p=p.pPyramid;
+p=chnsPyramid2([],opts.pPyramid); p=p.pPyramid;
 p.minDs=opts.modelDs; shrink=p.pChns.shrink;
 opts.modelDsPad=ceil(opts.modelDsPad/shrink)*shrink;
 p.pad=ceil((opts.modelDsPad-opts.modelDs)/shrink/2)*shrink;

@@ -6,7 +6,7 @@ channel = 0;
 normRad = 5;
 normConst = .005;
 full = 0;
-[M,O]=gradientMag(single(I(:,:,4)),channel,normRad,normConst,full);
+[M,O]=gradientMag(single(I(:,:,end)),channel,normRad,normConst,full);
 H=gradientHist(M,O,2,6, 1, 0, .2,full);
 
 [h, w, ~] = size( H );

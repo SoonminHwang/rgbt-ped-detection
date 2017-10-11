@@ -146,7 +146,7 @@ h=h/shrink; w=w/shrink;
 
 % To handle 4-channel images (KAIST-MultispectralDB)
 if size(Img,3) == 4, T = Img(:,:,4); I = Img(:,:,1:3);    
-else I = Img; end
+else I = Img; T = []; end
 
 % compute color channels
 p=pChns.pColor; nm='color channels';
@@ -174,7 +174,8 @@ end
 % compute custom channels
 p=pChns.pCustom;
 for i=find( [p.enabled] )
-  C=feval(p(i).hFunc,I,p(i).pFunc{:});
+%   C=feval(p(i).hFunc,I,p(i).pFunc{:});
+  C=feval(p(i).hFunc,T,p(i).pFunc{:});
   chns=addChn(chns,C,p(i).name,p(i),p(i).padWith,h,w);
 end
 

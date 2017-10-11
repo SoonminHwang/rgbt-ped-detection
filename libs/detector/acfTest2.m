@@ -1,4 +1,4 @@
-function [miss,roc,gt,dt] = acfTest( varargin )
+function [miss,roc,gt,dt] = acfTest2( varargin )
 % Test aggregate channel features object detector given ground truth.
 %
 % USAGE
@@ -35,33 +35,38 @@ function [miss,roc,gt,dt] = acfTest( varargin )
 % get parameters
 dfs={ 'name','REQ', 'imgDir','REQ', 'gtDir','REQ', 'pLoad',[], ...
   'pModify',[], 'thr',.5,'mul',0, 'reapply',0, 'ref',10.^(-2:.25:0), ...
-  'lims',[3.1e-3 1e1 .05 1], 'show',0 };
-[name,imgDir,gtDir,pLoad,pModify,thr,mul,reapply,ref,lims,show] = ...
+  'lims',[3.1e-3 1e1 .05 1], 'show',0, 'clr', 'g', 'subset', [], 'figName', [] };
+[name,imgDir,gtDir,pLoad,pModify,thr,mul,reapply,ref,lims,show,clr,subset,figName] = ...
   getPrmDflt(varargin,dfs,1);
 
 % run detector on directory of images
 bbsNm=[name 'Dets.txt'];
+imgNms = bbGt2('getSubsetFiles',{imgDir,imgDir,gtDir}, subset);
+
 if(reapply && exist(bbsNm,'file')), delete(bbsNm); end
 if(reapply || ~exist(bbsNm,'file'))
   detector = load([name 'Detector.mat']);
   detector = detector.detector;
   if(~isempty(pModify)), detector=acfModify(detector,pModify); end
-%   imgNms = bbGt2('getFiles',{imgDir});
-  imgNms = bbGt2('getSubsetFiles',{imgDir,imgDir});
+%   imgNms = bbGt2('getFiles',{imgDir});  
   acfDetect2( imgNms, detector, bbsNm );
 end
 
 % run evaluation using bbGt
-[gt,dt] = bbGt2('loadAll',gtDir,bbsNm,pLoad);
+[gt,dt] = bbGt2('loadAll',gtDir,bbsNm,pLoad,subset);
+% [gt,dt] = bbGt2('loadAll',imgNms(3,:),bbsNm,pLoad);
 [gt,dt] = bbGt2('evalRes',gt,dt,thr,mul);
 [fp,tp,score,miss] = bbGt2('compRoc',gt,dt,1,ref);
 miss=exp(mean(log(max(1e-10,1-miss)))); roc=[score fp tp];
 
 % optionally plot roc
 if( ~show ), return; end
-figure(show); plotRoc([fp tp],'logx',1,'logy',1,'xLbl','fppi',...
-  'lims',lims,'color','g','smooth',1,'fpTarget',ref);
+figure(show); 
+plotRoc([fp tp],'logx',1,'logy',1,'xLbl','False positives per image',...
+  'lims',lims,'color',clr,'smooth',1,'fpTarget',ref);
+
 title(sprintf('log-average miss rate = %.2f%%',miss*100));
-savefig([name 'Roc'],show,'png');
+% savefig([name 'Roc'],show,'png');
+print(gcf, '-dpng', [name '-' figName '-Roc.png'], '-r300');      % Use built-in function
 
 end

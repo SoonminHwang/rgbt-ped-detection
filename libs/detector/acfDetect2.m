@@ -39,9 +39,9 @@ function bbs = acfDetect2( I, detector, fileName )
 if(nargin<3), fileName=''; end; multiple=iscell(I);
 if(~isempty(fileName) && exist(fileName,'file')), bbs=1; return; end
 if(~multiple), bbs=acfDetectImg(I,detector); else
-  n=length(I); bbs=cell(n,1);
-  if size(1,I) > 1,     % RGB-T
-    parfor i=1:n, bbs{i}=acfDetectImg(imreadHist(I{1,i}, I{2,i}),detector); end
+  n=length(I); bbs=cell(n,1);  
+  if size(I,1) > 1     % RGB-T
+    parfor i=1:n, bbs{i}=acfDetectImg(imreadHistEq(I{1,i}, I{2,i}),detector); end
   else
     parfor i=1:n, bbs{i}=acfDetectImg(I{i},detector); end
   end
