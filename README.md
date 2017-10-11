@@ -26,7 +26,13 @@ cd rgbt-ped-detection/data/scripts
 chmod +x fetch_dataset_kaist_cvpr15.py & ./fetch_dataset_kaist_cvpr15.py & cd ../../
 ````
 
-3. Or you can get direct links for the dataset [here](data/README.md).
+or
+
+
+Run ````fetch_dataset_kaist_cvpr15.m```` in MATLAB.
+
+
+3. Altenatively, you can get direct links for the dataset [here](data/README.md).
 
 
 4. Then just run `acfDemoKAIST.m` in MATLAB
@@ -63,7 +69,7 @@ Also, another researches to employ multi-modality are presented.
 
 - Image-to-image translation [[Arxiv '17](https://arxiv.org/pdf/1703.00848v1.pdf)]
 - Calibrations
-- 
+
 
 
 ### Citation
