@@ -70,6 +70,15 @@ Also, another researches to employ multi-modality are presented.
 - Calibrations
 
 
+## Related benchmarks
+![Related](misc/related.png)
+
+The horizontal lines divide the image types of the dataset (color, thermal and color-thermal). Note that our dataset is largest color-thermal dataset providing occlusion labels and temporal correspondences captured in a non-static traffic scenes.
+
+
+**Please see our Place Recognition Benchmark.** [[Link](https://sites.google.com/site/alldaydataset/)]
+
+
 
 ## Citation
 If you use our extended toolbox or dataset in your research, please consider citing:
