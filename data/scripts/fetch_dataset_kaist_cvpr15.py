@@ -17,9 +17,9 @@ with open( 'md5_checksum_small_files_from_KAIST.txt', 'r') as f:
 		file, md5, url = line
 		cmd = wget_cmd + '"%s"' % url
 
-		print '[%d/%d] Download %s' % (ii, len(lines), file)
+		print( '[%d/%d] Download %s' % (ii, len(lines), file) )
 		if os.path.exists(file):
-			print 'File %s exists. Skip.' % file
+			print( 'File %s exists. Skip.' % file )
 		else:			
 			os.system(cmd)
 
@@ -29,21 +29,21 @@ with open( 'md5_checksum_small_files_from_KAIST.txt', 'r') as f:
 			dstDir = os.path.join('images', _set, _vid)
 
 		if os.path.exists( dstDir ):
-			print 'Extracted folder already exists. Skip.\n\n'
+			print( 'Extracted folder already exists. Skip.\n\n')
 			continue
 		else:
-			print 'Check md5 checksum for %s...' % file,
+			print( 'Check md5 checksum for %s...' % file)
 			sys.stdout.flush()
 
 			md5_download = hashlib.md5(open(file, 'rb').read()).hexdigest()
 			if md5_download != md5:
-				print '[Error] md5 checksum is not correct. (%s)' % file,
+				print( '[Error] md5 checksum is not correct. (%s)' % file )
 				continue
-			print 'done.'
+			print( 'done.')
 
-			print 'Extract %s...' % file,
+			print( 'Extract %s...' % file)
 			sys.stdout.flush()
 			os.system( 'unzip -d ../kaist-rgbt -q %s' % file )
-			print 'done.\n\n'
+			print( 'done.\n\n')
 			sys.stdout.flush()
 
