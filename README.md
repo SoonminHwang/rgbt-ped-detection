@@ -1,6 +1,14 @@
 # KAIST Multispectral Pedestrian Detection Benchmark
 
-By Soonmin Hwang, Jaesik Park, Namil Kim, Yukyung Choi, In So Kweon at RCV Lab. (KAIST) [[Website](http://multispectral.kaist.ac.kr)]
+## News (10/07/2021)
+ Due to the confusion caused by original paper, people sometimes reported numbers in different evaluation settings. In this regard, people from Sejong University(Jiwon Kim, Hyeongjun Kim, Tae-Joo Kim and Yukyung Choi) created a leaderboard to facilitate fair comparison. So please use [this leaderboard](https://eval.ai/web/challenges/challenge-page/1247/) for your research. 
+ 
+ ![image](https://user-images.githubusercontent.com/16588544/136439198-b49a5a39-22c5-4366-aef9-bc7f69b0badc.png)
+
+
+## Introduction
+By [Soonmin Hwang](https://soonminhwang.github.io), [Jaesik Park](http://jaesik.info/), [Namil Kim](https://www.namilkim.com/), [Yukyung Choi](https://www.rcv.sejong.ac.kr/members/professor), In So Kweon at RCV Lab. (KAIST) [[Website](http://multispectral.kaist.ac.kr)]
+
 ![teaserImage](misc/teaser.png)
 
 
@@ -14,21 +22,24 @@ The KAIST Multispectral Pedestrian Dataset consists of 95k color-thermal pairs (
 
 1. Clone this repository.
 
-````
+```bash
 git clone --recursive https://github.com/soonminhwang/rgbt-ped-detection
-````
+```
 
 2. First, download multispectral dataset.
 
-````
+```bash
 cd rgbt-ped-detection/data/scripts
 chmod +x fetch_dataset_kaist_cvpr15.py & ./fetch_dataset_kaist_cvpr15.py & cd ../../
-````
+```
 
 or
 
 
-Run ````fetch_dataset_kaist_cvpr15.m```` in MATLAB.
+```matlab
+fetch_dataset_kaist_cvpr15.m
+```
+in MATLAB.
 
 
 3. Altenatively, you can get direct links for the dataset [here](data/README.md).
