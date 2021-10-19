@@ -20,32 +20,14 @@ The KAIST Multispectral Pedestrian Dataset consists of 95k color-thermal pairs (
 ---
 ## Usage
 
-1. Clone this repository.
+
+Clone this repository and Download dataset
 
 ```bash
-git clone --recursive https://github.com/soonminhwang/rgbt-ped-detection
+$ git clone --recursive https://github.com/soonminhwang/rgbt-ped-detection
+$ cd rgbt-ped-detection && bash ./data/scripts/download_dataset_from_aws.sh ${YOUR_PATH_TO_DOWNLOAD_DATASET}
+
 ```
-
-2. First, download multispectral dataset.
-
-```bash
-cd rgbt-ped-detection/data/scripts
-chmod +x fetch_dataset_kaist_cvpr15.py & ./fetch_dataset_kaist_cvpr15.py & cd ../../
-```
-
-or
-
-
-```matlab
-fetch_dataset_kaist_cvpr15.m
-```
-in MATLAB.
-
-
-3. Altenatively, you can get direct links for the dataset [here](data/README.md).
-
-
-4. Then just run `acfDemoKAIST.m` in MATLAB
 
 
 
