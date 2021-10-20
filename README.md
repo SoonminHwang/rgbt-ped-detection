@@ -72,6 +72,10 @@ The horizontal lines divide the image types of the dataset (color, thermal and c
 **Please see our Place Recognition Benchmark.** [[Link](https://sites.google.com/site/alldaydataset/)]
 
 
+## License [![License: CC BY-NC-SA 4.0](https://licensebuttons.net/l/by-nc-sa/4.0/80x15.png)](https://creativecommons.org/licenses/by-nc-sa/4.0/) [![License](https://img.shields.io/badge/License-BSD%202--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)
+
+Please see [LICENSE.md](LICENSE.md) for more details.
+
 
 ## Citation
 If you use our extended toolbox or dataset in your research, please consider citing:
