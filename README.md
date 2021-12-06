@@ -25,7 +25,13 @@ Clone this repository and Download dataset
 
 ```bash
 $ git clone --recursive https://github.com/soonminhwang/rgbt-ped-detection
-$ cd rgbt-ped-detection && bash ./data/scripts/download_dataset_from_aws.sh ${YOUR_PATH_TO_DOWNLOAD_DATASET}
+$ cd rgbt-ped-detection
+
+$ bash ./data/scripts/download_dataset_from_onedrive.sh ${YOUR_PATH_TO_DOWNLOAD_DATASET}
+
+or
+
+$ bash ./data/scripts/download_dataset_from_nas.sh ${YOUR_PATH_TO_DOWNLOAD_DATASET}
 
 ```
 

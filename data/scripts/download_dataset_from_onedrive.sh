@@ -5,7 +5,7 @@ cd "$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 dataset_root=${1}
 
 if [ "$#" -ne 1 ]; then
-     echo "Usage: ./download_dataset.sh DATASET_DOWNLOAD_PATH"
+     echo "Usage: ./download_dataset_from_onedrive.sh DATASET_DOWNLOAD_PATH"
      exit 2
 fi
 
@@ -20,8 +20,8 @@ echo ""
 echo "Downloading dataset to ${dataset_root}"
 echo ""
 filename="kaist-cvpr15.tar.gz"
-url="https://kaist-cvpr15-dataset.s3.ap-northeast-2.amazonaws.com/${filename}"
-wget --directory-prefix=${dataset_root} ${url}
+url="https://onedrive.live.com/download?cid=1570430EADF56512&resid=1570430EADF56512%21109419&authkey=AJcMP-7Yp86PWoE"
+wget --no-check-certificate ${url} -O ${dataset_root}/${filename}
 
 echo ""
 echo "Extract dataset (takes > 10 mins)"
