@@ -1,8 +1,8 @@
 # KAIST Multispectral Pedestrian Detection Benchmark
 
-## News (10/07/2021)
- Due to the confusion caused by original paper, people sometimes reported numbers in different evaluation settings. In this regard, people from Sejong University(Jiwon Kim, Hyeongjun Kim, Tae-Joo Kim and Yukyung Choi) created a leaderboard to facilitate fair comparison. So please use [this leaderboard](https://eval.ai/web/challenges/challenge-page/1247/) for your research. 
- 
+## Leaderboard
+ Due to the confusion caused by original paper, people sometimes reported numbers in different evaluation settings. In this regard, people from Sejong University(Jiwon Kim, Hyeongjun Kim, Tae-Joo Kim and Yukyung Choi) created a leaderboard to facilitate fair comparison. So please use [this leaderboard](https://eval.ai/web/challenges/challenge-page/1247/) for your research.
+
  ![image](https://user-images.githubusercontent.com/16588544/136439198-b49a5a39-22c5-4366-aef9-bc7f69b0badc.png)
 
 
@@ -18,26 +18,58 @@ The KAIST Multispectral Pedestrian Dataset consists of 95k color-thermal pairs (
 
 &nbsp;
 ---
-## Usage
+## Download
 
-
-Clone this repository and Download dataset
-
+You can install `gdown` via pip:
 ```bash
-$ git clone --recursive https://github.com/soonminhwang/rgbt-ped-detection
-$ cd rgbt-ped-detection
-
-$ bash ./data/scripts/download_dataset_from_onedrive.sh ${YOUR_PATH_TO_DOWNLOAD_DATASET}
-
-or
-
-$ bash ./data/scripts/download_dataset_from_nas.sh ${YOUR_PATH_TO_DOWNLOAD_DATASET}
-
+pip install gdown
 ```
 
+### Preview set (1.44GB)
+You can find demo code to parse labels and draw boxes on the pair of images.
+
+```bash
+gdown 11nhHpmuh2FUjrLNfGs51R2Mqqy1GTjY8
+```
+
+### Full set (36.32GB)
+```bash
+gdown 1sBcAmFqNJmNMBZdMtKmO2X4BRjKPyKMc
+```
+
+## Integrity Verification
+
+To ensure your download is complete and hasn't been corrupted, we provide an MD5 checksum file.
+
+### 1. Download MD5 file
+You can download the checksum file along with the dataset:
+
+- Preview set (kaist-cvpr15-preview.tar)
+	```bash
+	gdown 1nJkdnSI9fAuhhZPKFfhVXimXGzvuRTb6
+	```
+
+- Full set (kaist-cvpr15.tar)
+	```bash
+	gdown 1KQ9lZXX9nfZuhbqBUEdlU2Yjx3nzeg5c
+	```
+
+### 2. Verify Automatically (Recommended)
+If you have both kaist-cvpr15.tar and kaist-cvpr15.tar.md5 in the same directory, run the following command:
+
+- Linux / WSL:
+	```Bash
+	md5sum -c kaist-cvpr15.tar.md5
+	```
+
+- macOS:
+	```Bash
+	# Check manually or use md5sum (if installed via brew)
+	FILE="kaist-cvpr15.tar"; md5 -q $FILE | grep -qf - $FILE.md5 && echo "$FILE: OK"
+	```
 
 
-## Preview
+## Preview videos (low-quality)
 [![Set00, Day-Campus](http://img.youtube.com/vi/a6KKFGNkNNE/0.jpg)](https://youtu.be/a6KKFGNkNNE)
 [![Set04, Night-Road](http://img.youtube.com/vi/GSc9Lu3TQyQ/0.jpg)](https://youtu.be/GSc9Lu3TQyQ)
 [![Set05, Night-Downtown](http://img.youtube.com/vi/AerQFTuMFsg/0.jpg)](https://youtu.be/AerQFTuMFsg)
@@ -62,7 +94,7 @@ Many researchers struggle to improve pedestrian detection performance on our ben
 - CMT-CNN [[CVPR '17](https://arxiv.org/pdf/1704.02431.pdf)]: 49.55%
 - Baseline, ACF+T+THOG [[CVPR '15](https://7b62b1cf-a-62cb3a1a-s-sites.googlegroups.com/site/pedestrianbenchmark/CVPR15_Pedestrian_Benchmark.pdf?attachauth=ANoY7coTuQT0B-N_QIGyxTx4HPg7QRp0lb9D3YJWwZ0KbKI3yf2cgINSlR2_rvMiIVwMOjNkOUqOqXQmwHT6C1ykXK6xDjOy08TQA0ZYSGQtXtH8OtNDwzRvkScbuojkqa15MfcN9oL6HY7ZgqihGB87gi6_bVcvbvHLPfzfjHmPj2UkvSNY9Ogcd092jsfMWhRyFw_8KSp6nJuPrfpbmZFLcFXmhMONHk5L0IBPPmxqj0PMCHRR_4H3YcMRaVgNt_qRsiwQqxjW&attredirects=0)]: 54.40%
 
- 
+
 Also, another researches to employ multi-modality are presented.
 
 - Image-to-image translation [[Arxiv '17](https://arxiv.org/pdf/1703.00848v1.pdf)]
